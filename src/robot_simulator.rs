@@ -49,24 +49,18 @@ pub struct Robot {
 
 #[allow(dead_code)]
 impl Robot {
-    pub fn new(x: i32, y: i32, d: Direction) -> Self {
-        Robot { x, y, d }
-    }
+    pub fn new(x: i32, y: i32, d: Direction) -> Self { Robot { x, y, d } }
 
     #[must_use]
     pub fn turn_right(self) -> Self {
-        Robot {
-            d: self.d.get(Rotation::R),
-            ..self
-        }
+        Robot { d: self.d.get(Rotation::R),
+                ..self }
     }
 
     #[must_use]
     pub fn turn_left(self) -> Self {
-        Robot {
-            d: self.d.get(Rotation::L),
-            ..self
-        }
+        Robot { d: self.d.get(Rotation::L),
+                ..self }
     }
 
     #[must_use]
@@ -85,18 +79,15 @@ impl Robot {
 
     #[must_use]
     pub fn instructions(self, instructions: &str) -> Self {
-        instructions.chars().fold(self, |r, ch| match ch {
-            'R' => r.turn_right(),
-            'L' => r.turn_left(),
-            _ => r.advance(),
-        })
+        instructions.chars()
+                    .fold(self, |r, ch| match ch {
+                        'R' => r.turn_right(),
+                        'L' => r.turn_left(),
+                        _ => r.advance(),
+                    })
     }
 
-    pub fn position(&self) -> (i32, i32) {
-        (self.x, self.y)
-    }
+    pub fn position(&self) -> (i32, i32) { (self.x, self.y) }
 
-    pub fn direction(&self) -> &Direction {
-        &self.d
-    }
+    pub fn direction(&self) -> &Direction { &self.d }
 }

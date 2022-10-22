@@ -6,27 +6,25 @@ pub struct Rna(String);
 
 impl From<Dna> for Rna {
     fn from(dna: Dna) -> Rna {
-        Rna(dna
-            .0
-            .chars()
-            .map(|c| match c {
-                'G' => 'C',
-                'C' => 'G',
-                'T' => 'A',
-                _ => 'U',
-            })
-            .collect())
+        Rna(dna.0
+               .chars()
+               .map(|c| match c {
+                   'G' => 'C',
+                   'C' => 'G',
+                   'T' => 'A',
+                   _ => 'U',
+               })
+               .collect())
     }
 }
 
 pub fn map_chars(strand: &str, chars: [char; 4]) -> String {
-    strand
-        .chars()
-        .map_while(|c| match chars.contains(&c) {
-            true => Some(c),
-            false => None,
-        })
-        .collect()
+    strand.chars()
+          .map_while(|c| match chars.contains(&c) {
+              true => Some(c),
+              false => None,
+          })
+          .collect()
 }
 
 #[allow(dead_code)]
@@ -37,13 +35,11 @@ impl Dna {
             true => Ok(Dna(dna.to_string())),
             false => {
                 return Err(new_dna.len());
-            }
+            },
         }
     }
 
-    pub fn into_rna(self) -> Rna {
-        Rna::from(self)
-    }
+    pub fn into_rna(self) -> Rna { Rna::from(self) }
 }
 
 #[allow(dead_code)]

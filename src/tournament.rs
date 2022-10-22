@@ -26,8 +26,8 @@ impl From<&str> for MatchResult {
 
 #[derive(Debug)]
 pub struct Team<'a> {
-    pub name: &'a str,
-    pub points: u32,
+    pub name:    &'a str,
+    pub points:  u32,
     pub results: R,
 }
 
@@ -35,19 +35,19 @@ pub struct Team<'a> {
 impl<'a> Team<'a> {
     pub fn new(name: &'a str, results: &R) -> Self {
         let points = results.0 * 3 + results.1;
-        Team {
-            name,
-            points,
-            results: *results,
-        }
+        Team { name,
+               points,
+               results: *results }
     }
 }
 
 impl<'a> fmt::Display for Team<'a> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let matches_played = self.results.0 + self.results.1 + self.results.2;
+
         let (name, mp, p, (w, d, l)): (&'a str, u32, u32, R) =
             (self.name, matches_played, self.points, self.results);
+
         let display = format!("{name: <31}|  {mp} |  {w} |  {d} |  {l} |  {p}");
 
         write!(f, "{}", display)
@@ -88,14 +88,14 @@ pub fn tally(match_results: &str) -> String {
     let mut hash_vec: Vec<(&&str, &R)> = teams.iter().collect();
 
     hash_vec.sort_by(|a, b| {
-        let atot = (a.1).0 * 3 + (a.1).1;
-        let btot = (b.1).0 * 3 + (b.1).1;
-        if atot.eq(&btot) {
-            a.0.cmp(b.0)
-        } else {
-            btot.cmp(&atot)
-        }
-    });
+                let atot = (a.1).0 * 3 + (a.1).1;
+                let btot = (b.1).0 * 3 + (b.1).1;
+                if atot.eq(&btot) {
+                    a.0.cmp(b.0)
+                } else {
+                    btot.cmp(&atot)
+                }
+            });
 
     for t in hash_vec {
         let team = Team::new(t.0, t.1);

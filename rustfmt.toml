@@ -1,0 +1,32 @@
+
+max_width = 90
+chain_width = 40
+wrap_comments = true
+fn_single_line = true
+format_strings = true
+reorder_modules = true
+reorder_imports = true
+match_arm_blocks = false
+reorder_impl_items = true
+normalize_comments = true
+empty_item_single_line = true
+struct_lit_single_line = true
+overflow_delimited_expr = true
+use_field_init_shorthand = true
+condense_wildcard_suffixes = true
+match_block_trailing_comma = true
+enum_discrim_align_threshold = 30
+struct_field_align_threshold = 30
+single_line_if_else_max_width = 90
+array_width = 40
+
+color = "Always"
+group_imports = "One"
+newline_style = "Unix"
+indent_style = "Visual"
+imports_indent = "Visual"
+hex_literal_case = "Upper"
+imports_granularity = "Crate"
+match_arm_leading_pipes = "Preserve"
+imports_layout = "HorizontalVertical"
+control_brace_style = "AlwaysSameLine"
