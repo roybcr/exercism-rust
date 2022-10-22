@@ -76,14 +76,9 @@ pub mod graph {
 
     impl Graph {
         pub fn new() -> Self {
-            let g = Graph { edges: Vec::<Edge>::new(),
-                            nodes: Vec::<Node>::new(),
-                            attrs: HashMap::<String, String>::new(), };
-            println!("{}\t{}\t{}",
-                     g.nodes.is_empty(),
-                     g.edges.is_empty(),
-                     g.attrs.is_empty());
-            g
+            Graph { edges: Vec::<Edge>::new(),
+                    nodes: Vec::<Node>::new(),
+                    attrs: HashMap::<String, String>::new(), }
         }
 
         pub fn with_attrs(mut self, attrs: &Attrs) -> Self {
