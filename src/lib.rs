@@ -1,7 +1,6 @@
 mod allergies;
-mod ascii;
-mod ascii_rectangles;
 mod clock;
+mod dot_dsl;
 mod queen_attack;
 mod rna_transcription;
 mod robot_simulator;

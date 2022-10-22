@@ -1,7 +1,6 @@
 mod allergies;
-mod ascii;
-mod ascii_rectangles;
 mod clock;
+mod dot_dsl;
 mod rna_transcription;
 mod robot_simulator;
 mod short_fibonacci_seq;
@@ -9,6 +8,7 @@ mod short_fibonacci_seq;
 use crate::{rna_transcription::{Dna, Rna},
             short_fibonacci_seq::create_buffer};
 use clock::Clock;
+pub use maplit;
 use robot_simulator::{Direction::*, Robot};
 
 fn main() {
