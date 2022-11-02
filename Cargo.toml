@@ -4,6 +4,9 @@ version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[features]
+grapheme = []
 
 [dependencies]
-maplit = "1.0.2"
+maplit = "1.0.2" 
+unicode-segmentation = "1.7.0" 

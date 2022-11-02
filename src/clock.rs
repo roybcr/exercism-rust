@@ -31,8 +31,8 @@ impl std::fmt::Display for Clock {
         let h_len = h_str.len();
         let m_len = m_str.len();
 
-        let h = format!("{}", h_str)[h_len - 2..h_len].to_string();
-        let m = format!("{}", m_str)[m_len - 2..m_len].to_string();
+        let h = h_str.to_string()[h_len - 2..h_len].to_string();
+        let m = m_str.to_string()[m_len - 2..m_len].to_string();
 
         write!(f, "{h}:{m}")
     }

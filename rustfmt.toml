@@ -1,6 +1,6 @@
 
 max_width = 90
-chain_width = 40
+chain_width = 65
 wrap_comments = true
 fn_single_line = true
 format_strings = true
@@ -17,7 +17,7 @@ condense_wildcard_suffixes = true
 match_block_trailing_comma = true
 enum_discrim_align_threshold = 30
 struct_field_align_threshold = 30
-single_line_if_else_max_width = 90
+single_line_if_else_max_width = 100
 array_width = 40
 
 color = "Always"

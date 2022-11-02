@@ -9,6 +9,7 @@ pub fn evens<T>(iter: impl Iterator<Item = T>) -> impl Iterator<Item = T> {
         .filter(|i| i.0.rem_euclid(2).eq(&0))
         .map(|i| i.1)
         .into_iter()
+    // iter.step_by(2) --> A better solution
 }
 
 pub struct Position(pub i16, pub i16);

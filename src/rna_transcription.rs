@@ -33,9 +33,7 @@ impl Dna {
         let new_dna = map_chars(dna, ['G', 'C', 'A', 'T']);
         match dna.len().eq(&new_dna.len()) {
             true => Ok(Dna(dna.to_string())),
-            false => {
-                return Err(new_dna.len());
-            },
+            false => Err(new_dna.len()),
         }
     }
 

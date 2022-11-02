@@ -2,7 +2,6 @@ mod allergies;
 mod clock;
 mod dot_dsl;
 mod lowpow_embedded_game;
-mod reverse_string;
 mod rna_transcription;
 mod robot_simulator;
 mod short_fibonacci_seq;
@@ -14,6 +13,7 @@ use lowpow_embedded_game::evens;
 pub use maplit;
 use robot_simulator::{Direction::*, Robot};
 use spiral_matrix::spiral_matrix;
+pub use unicode_segmentation::UnicodeSegmentation;
 
 fn main() {
     let allergies = allergies::Allergies::new(248);
