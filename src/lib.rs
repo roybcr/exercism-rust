@@ -1,11 +1,4 @@
-mod allergies;
-mod clock;
-mod dot_dsl;
-mod lowpow_embedded_game;
 mod queen_attack;
-mod rna_transcription;
-mod robot_simulator;
-mod spiral_matrix;
 mod tournament;
 
 #[cfg(test)]
