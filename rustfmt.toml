@@ -1,6 +1,6 @@
 
 max_width = 90
-chain_width = 65
+chain_width = 80
 wrap_comments = true
 fn_single_line = true
 format_strings = true
@@ -17,9 +17,10 @@ condense_wildcard_suffixes = true
 match_block_trailing_comma = true
 enum_discrim_align_threshold = 30
 struct_field_align_threshold = 30
-single_line_if_else_max_width = 100
-array_width = 40
-
+single_line_if_else_max_width = 80
+array_width = 80
+where_single_line = true
+where_density = "Compressed"
 color = "Always"
 group_imports = "One"
 newline_style = "Unix"
@@ -30,3 +31,10 @@ imports_granularity = "Crate"
 match_arm_leading_pipes = "Preserve"
 imports_layout = "HorizontalVertical"
 control_brace_style = "AlwaysSameLine"
+brace_style = "AlwaysSameLine"
+fn_args_layout = "Tall"
+fn_brace_style = "AlwaysSameLine"
+struct_lit_style = "Block"
+struct_lit_multiline_style = "Visual"
+struct_lit_single_line = true
+

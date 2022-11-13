@@ -5,6 +5,7 @@ pub struct CircularBuffer<T> {
     pub buffer: Vec<Option<T>>,
 }
 
+#[allow(dead_code)]
 #[derive(Debug, PartialEq, Eq)]
 pub enum Error {
     EmptyBuffer,

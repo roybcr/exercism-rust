@@ -1,3 +1,5 @@
+#![feature(unboxed_closures)]
+
 mod allergies;
 mod circular_buffer;
 mod clock;
@@ -5,6 +7,7 @@ mod dot_dsl;
 mod lowpow_embedded_game;
 mod luhn;
 mod matching_brackets;
+mod react;
 mod rna_transcription;
 mod robot_simulator;
 mod short_fibonacci_seq;
