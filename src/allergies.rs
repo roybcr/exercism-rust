@@ -15,58 +15,57 @@ pub struct Allergies(u32);
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum Allergen {
-    Eggs,
-    Peanuts,
-    Shellfish,
-    Strawberries,
-    Tomatoes,
-    Chocolate,
-    Pollen,
-    Cats,
-    Other,
+      Eggs,
+      Peanuts,
+      Shellfish,
+      Strawberries,
+      Tomatoes,
+      Chocolate,
+      Pollen,
+      Cats,
+      Other,
 }
 
 impl From<u32> for Allergen {
-    fn from(n: u32) -> Self {
-        use Allergen::*;
-        match n {
-            0u32 => Eggs,
-            1u32 => Peanuts,
-            2u32 => Shellfish,
-            3u32 => Strawberries,
-            4u32 => Tomatoes,
-            5u32 => Chocolate,
-            6u32 => Pollen,
-            7u32 => Cats,
-            _ => Other,
-        }
-    }
+      fn from(n: u32) -> Self {
+            use Allergen::*;
+            match n {
+                  0u32 => Eggs,
+                  1u32 => Peanuts,
+                  2u32 => Shellfish,
+                  3u32 => Strawberries,
+                  4u32 => Tomatoes,
+                  5u32 => Chocolate,
+                  6u32 => Pollen,
+                  7u32 => Cats,
+                  _ => Other,
+            }
+      }
 }
 
 pub const BASE: u32 = 2;
 
 #[allow(dead_code)]
 impl Allergies {
-    pub fn new(score: u32) -> Self { Allergies(score) }
+      pub fn new(score: u32) -> Self { Allergies(score) }
 
-    pub fn is_allergic_to(&self, allergen: &Allergen) -> bool {
-        self.0
-            .ge(&BASE.pow(allergen.clone() as u32))
-    }
+      pub fn is_allergic_to(&self, allergen: &Allergen) -> bool {
+            self.0.ge(&BASE.pow(allergen.clone() as u32))
+      }
 
-    pub fn allergies(&self) -> Vec<Allergen> {
-        let mut score_left = self.0;
-        let mut allergies: Vec<Allergen> = Vec::new();
+      pub fn allergies(&self) -> Vec<Allergen> {
+            let mut score_left = self.0;
+            let mut allergies: Vec<Allergen> = Vec::new();
 
-        while score_left.gt(&0u32) {
-            let allergy: u32 = f64::from(score_left).log2().floor() as u32;
-            score_left -= BASE.pow(allergy);
+            while score_left.gt(&0u32) {
+                  let allergy: u32 = f64::from(score_left).log2().floor() as u32;
+                  score_left -= BASE.pow(allergy);
 
-            if Allergen::from(allergy).ne(&Allergen::Other) {
-                allergies.push(allergy.into());
+                  if Allergen::from(allergy).ne(&Allergen::Other) {
+                        allergies.push(allergy.into());
+                  }
             }
-        }
 
-        allergies
-    }
+            allergies
+      }
 }
