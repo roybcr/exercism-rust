@@ -40,6 +40,44 @@ pub fn count(lines: &[&str]) -> u32 {
       let total_lines = lines.len();
       let mut c_idx = 0_usize; // represents current line index.
       let mut hvec: Vec<HashSet<Box<Side>>> = Vec::new();
+      let total_cols = lines[0].len();
+      let mut cols: Vec<&str> = vec![];
+
+      'outer: loop {
+            let mut col_idx = 0_usize;
+            let mut new_line = String::new();
+            if col_idx.ge(&total_cols) {
+                  break 'outer;
+            }
+
+            for (line_idx, &line) in lines.iter().enumerate() {
+                  if let Some(charstr) = line.get(col_idx) {
+                        new_line.push_str(charstr)
+                  }
+            }
+      }
+      'outer: loop {
+            if column.ge(&total_cols) {
+                  break 'outer;
+            }
+
+            lines.iter().reduce(vec![], |mut acc, line| {
+                  let mut c_idx = 0_usize;
+                  let mut column = 0_usize;
+                  line.chars().for_each(|c| {
+                        if c == '+' {
+                              let side = Box::new(Side::new(column, c_idx));
+                              hset.insert(side);
+                        }
+
+                        column += 1;
+                  });
+
+                  hvec.push(hset);
+                  c_idx += 1;
+                  acc
+            });
+      }
 
       loop {
             let mut hset: HashSet<Box<Side>> = HashSet::new();
